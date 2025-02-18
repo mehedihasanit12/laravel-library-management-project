@@ -24,12 +24,12 @@
                     </div>
                     <div class="!mt-8">
                         <a href="{{route('student.register')}}" class="w-full block text-center py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
-                            Student Register Page
+                            Librarian Login Page
                         </a>
                     </div>
                     <div class="!mt-8">
-                        <a href="" class="w-full block text-center py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none">
-                            Admin Log-in Page
+                        <a href="{{route('login')}}" class="w-full block text-center py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none">
+                            Admin Login Page
                         </a>
                     </div>
                 </div>

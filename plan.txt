@@ -2,5 +2,14 @@
 -----------
 
 1. book module-- book add, update,delete, book status check,
-2. student module--- student add, student approve, history to issue, fine
-3. issue & return module-- 
+2. student module--- student add, history to issue-- previous book and current book, fine
+3. issue module-- current issue book approve, 
+4. return module-- current return book
+5. librarian module-
+
+
+student
+=========
+book
+book add to cart
+dashboard
