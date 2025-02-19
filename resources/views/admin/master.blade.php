@@ -105,13 +105,13 @@
                             </a>
                             <ul class="sub menu max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out ml-8">
                                 <li>
-                                    <a href="javascript:void(0)"
+                                    <a href="{{route('author.create')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
                                         <span>Add Author</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"
+                                    <a href="{{route('author.index')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
                                         <span>Manage Author</span>
                                     </a>
@@ -141,15 +141,51 @@
                             </a>
                             <ul class="sub menu max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out ml-8">
                                 <li>
-                                    <a href="javascript:void(0)"
+                                    <a href="{{route('book.create')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
                                         <span>Add Book</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"
+                                    <a href="{{route('book.index')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
                                         <span>Manage Book</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript:void(0)"
+                               class="text-gray-800 text-sm flex items-center cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2.5 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-[18px] h-[18px] mr-3"
+                                     viewBox="0 0 24 24">
+                                    <path
+                                        d="M18 2c2.206 0 4 1.794 4 4v12c0 2.206-1.794 4-4 4H6c-2.206 0-4-1.794-4-4V6c0-2.206 1.794-4 4-4zm0-2H6a6 6 0 0 0-6 6v12a6 6 0 0 0 6 6h12a6 6 0 0 0 6-6V6a6 6 0 0 0-6-6z"
+                                        data-original="#000000" />
+                                    <path d="M12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v10a1 1 0 0 1-1 1z" data-original="#000000" />
+                                    <path d="M6 12a1 1 0 0 1 1-1h10a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1z" data-original="#000000" />
+                                </svg>
+                                <span class="overflow-hidden text-ellipsis whitespace-nowrap">Member Module</span>
+                                <svg xmlns="http://www.w3.org/2000/svg"
+                                     class="arrowIcon w-3 fill-current -rotate-90 ml-auto transition-all duration-500"
+                                     viewBox="0 0 451.847 451.847">
+                                    <path
+                                        d="M225.923 354.706c-8.098 0-16.195-3.092-22.369-9.263L9.27 151.157c-12.359-12.359-12.359-32.397 0-44.751 12.354-12.354 32.388-12.354 44.748 0l171.905 171.915 171.906-171.909c12.359-12.354 32.391-12.354 44.744 0 12.365 12.354 12.365 32.392 0 44.751L248.292 345.449c-6.177 6.172-14.274 9.257-22.369 9.257z"
+                                        data-original="#000000" />
+                                </svg>
+                            </a>
+                            <ul class="sub menu max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out ml-8">
+                                <li>
+                                    <a href="{{route('member.create')}}"
+                                       class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
+                                        <span>Add Member</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('member.index')}}"
+                                       class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
+                                        <span>Manage Member</span>
                                     </a>
                                 </li>
                             </ul>
@@ -262,10 +298,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)"
-                                       class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
-                                        <span>Logout</span>
-                                    </a>
+                                    <form action="{{route('logout')}}" method="POST">
+                                        @csrf
+                                        <button type="submit"
+                                           class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
+                                            <span>Logout</span>
+                                        </button>
+                                    </form>
                                 </li>
                             </ul>
                         </li>
@@ -437,14 +476,17 @@
                                                 </g>
                                             </svg>
                                             Schedules</a>
-                                        <a href="javascript:void(0)"
-                                           class="text-sm text-gray-800 cursor-pointer flex items-center p-2 rounded-md hover:bg-gray-100 dropdown-item transition duration-300 ease-in-out">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-3 fill-current" viewBox="0 0 6 6">
-                                                <path
-                                                    d="M3.172.53a.265.266 0 0 0-.262.268v2.127a.265.266 0 0 0 .53 0V.798A.265.266 0 0 0 3.172.53zm1.544.532a.265.266 0 0 0-.026 0 .265.266 0 0 0-.147.47c.459.391.749.973.749 1.626 0 1.18-.944 2.131-2.116 2.131A2.12 2.12 0 0 1 1.06 3.16c0-.65.286-1.228.74-1.62a.265.266 0 1 0-.344-.404A2.667 2.667 0 0 0 .53 3.158a2.66 2.66 0 0 0 2.647 2.663 2.657 2.657 0 0 0 2.645-2.663c0-.812-.363-1.542-.936-2.03a.265.266 0 0 0-.17-.066z"
-                                                    data-original="#000000" />
-                                            </svg>
-                                            Logout</a>
+                                        <form action="{{route('logout')}}" method="POST">
+                                            @csrf
+                                            <button type="submit"
+                                               class="text-sm text-gray-800 cursor-pointer flex items-center p-2 rounded-md hover:bg-gray-100 dropdown-item transition duration-300 ease-in-out">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-3 fill-current" viewBox="0 0 6 6">
+                                                    <path
+                                                        d="M3.172.53a.265.266 0 0 0-.262.268v2.127a.265.266 0 0 0 .53 0V.798A.265.266 0 0 0 3.172.53zm1.544.532a.265.266 0 0 0-.026 0 .265.266 0 0 0-.147.47c.459.391.749.973.749 1.626 0 1.18-.944 2.131-2.116 2.131A2.12 2.12 0 0 1 1.06 3.16c0-.65.286-1.228.74-1.62a.265.266 0 1 0-.344-.404A2.667 2.667 0 0 0 .53 3.158a2.66 2.66 0 0 0 2.647 2.663 2.657 2.657 0 0 0 2.645-2.663c0-.812-.363-1.542-.936-2.03a.265.266 0 0 0-.17-.066z"
+                                                        data-original="#000000" />
+                                                </svg>
+                                                Logout</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>

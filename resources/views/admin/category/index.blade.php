@@ -6,6 +6,8 @@
 
 @section('body')
     <div class="font-[sans-serif] overflow-x-auto mt-10">
+        <h1 class="font-bold text-center text-green-400 mb-4">{{session('message')}}</h1>
+        <h1 class="font-bold text-center text-red-400 mb-4">{{session('delete-message')}}</h1>
         <table class="min-w-full bg-white border-collapse border border-gray-400 text-center">
             <thead class="bg-gray-800 whitespace-nowrap">
             <tr>
@@ -40,16 +42,16 @@
                     {{$category->name}}
                 </td>
                 <td class="border border-gray-300 p-4 text-sm text-black">
-                    {{$category->status}}
+                    {{$category->status==1 ? 'Published' : 'Unpublished'}}
                 </td>
-                <td class="border border-gray-300 p-4 text-sm text-black">
-                    {{$category->image}}
+                <td class=" p-4 text-sm text-black flex justify-center">
+                    <img src="{{asset($category->image)}}" height="50" width="50" alt="">
                 </td>
                 <td class="border border-gray-300 p-4 text-sm text-black">
                     {{$category->description}}
                 </td>
-                <td class="border border-gray-300 p-4">
-                    <button class="mr-4" title="Edit">
+                <td class="p-4 flex justify-center items-center">
+                    <a href="{{route('category.edit', $category->id)}}" class="mr-4" title="Edit">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-blue-500 hover:fill-blue-700"
                              viewBox="0 0 348.882 348.882">
                             <path
@@ -59,16 +61,20 @@
                                 d="M303.85 138.388c-8.284 0-15 6.716-15 15v127.347c0 21.034-17.113 38.147-38.147 38.147H68.904c-21.035 0-38.147-17.113-38.147-38.147V100.413c0-21.034 17.113-38.147 38.147-38.147h131.587c8.284 0 15-6.716 15-15s-6.716-15-15-15H68.904C31.327 32.266.757 62.837.757 100.413v180.321c0 37.576 30.571 68.147 68.147 68.147h181.798c37.576 0 68.147-30.571 68.147-68.147V153.388c.001-8.284-6.715-15-14.999-15z"
                                 data-original="#000000" />
                         </svg>
-                    </button>
-                    <button class="mr-4" title="Delete">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-red-500 hover:fill-red-700" viewBox="0 0 24 24">
-                            <path
-                                d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"
-                                data-original="#000000" />
-                            <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"
-                                  data-original="#000000" />
-                        </svg>
-                    </button>
+                    </a>
+                    <form action="{{route('category.destroy', $category->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('Are You Sure?')" class="mr-4" title="Delete">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-red-500 hover:fill-red-700" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"
+                                    data-original="#000000" />
+                                <path d="M11 17v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Zm4 0v-7a1 1 0 0 0-2 0v7a1 1 0 0 0 2 0Z"
+                                      data-original="#000000" />
+                            </svg>
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach

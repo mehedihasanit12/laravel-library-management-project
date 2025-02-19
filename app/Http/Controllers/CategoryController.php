@@ -47,7 +47,9 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('admin.category.edit', [
+            'category' => $category
+        ]);
     }
 
     /**
@@ -55,7 +57,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        Category::updateCategory($request, $category->id);
+        return redirect('/category')->with('message', 'Category Info Update successfully.');
     }
 
     /**
@@ -63,6 +66,7 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        Category::deleteCategory($category->id);
+        return back()->with('delete-message', 'Category Info Delete successfully.');
     }
 }

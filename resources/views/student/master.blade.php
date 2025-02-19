@@ -6,6 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('title')</title>
+    <link rel="stylesheet" href="{{asset('/')}}/student/assets/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('/')}}/student/assets/owlcarousel/owl.theme.default.min.css">
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -14,19 +16,10 @@
     <section
         class='flex items-center flex-wrap lg:justify-center gap-4 py-2.5 sm:px-10 px-4 border-gray-200 border-b min-h-[70px]'>
 
-        <div class='left-10 absolute z-50 bg-gray-100 flex items-center px-4 py-2.5 rounded max-lg:hidden'>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904"
-                 class="cursor-pointer fill-gray-400 mr-2.5 inline-block w-[18px] h-[18px]">
-                <path
-                    d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
-                </path>
-            </svg>
-            <input type='text' placeholder='Search...' class="outline-none bg-transparent w-full text-sm" />
-        </div>
 
-        <a href="javascript:void(0)" class="max-sm:hidden"><img src="https://readymadeui.com/readymadeui.svg" alt="logo" class='w-36' />
+        <a href="{{route('student-dashboard')}}" class="max-sm:hidden flex items-center gap-4"><img src="https://admission.univadmin.info/assets/img/shniyd_logo.jpg" height="50" width="50" alt="logo" /> <h1 class="font-bold text-2xl">Library Management System</h1>
         </a>
-        <a href="javascript:void(0)" class="hidden max-sm:block"><img src="https://readymadeui.com/readymadeui-short.svg" alt="logo" class='w-9' />
+        <a href="{{route('student-dashboard')}}" class="hidden max-sm:block"><img src="https://admission.univadmin.info/assets/img/shniyd_logo.jpg" height="50" width="50" alt="logo" />
         </a>
 
         <div class="lg:absolute lg:right-10 flex items-center ml-auto space-x-8">
@@ -40,12 +33,14 @@
             <span class="absolute left-auto -ml-1 top-0 rounded-full bg-blue-600 px-1 py-0 text-xs text-white">1</span>
           </span>
             <span class="relative">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
-                 class="cursor-pointer fill-gray-800 hover:fill-[#007bff] inline-block" viewBox="0 0 512 512">
+            <a href="{{route('cart.index')}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                     class="cursor-pointer fill-gray-800 hover:fill-[#007bff] inline-block" viewBox="0 0 512 512">
               <path
                   d="M164.96 300.004h.024c.02 0 .04-.004.059-.004H437a15.003 15.003 0 0 0 14.422-10.879l60-210a15.003 15.003 0 0 0-2.445-13.152A15.006 15.006 0 0 0 497 60H130.367l-10.722-48.254A15.003 15.003 0 0 0 105 0H15C6.715 0 0 6.715 0 15s6.715 15 15 15h77.969c1.898 8.55 51.312 230.918 54.156 243.71C131.184 280.64 120 296.536 120 315c0 24.812 20.188 45 45 45h272c8.285 0 15-6.715 15-15s-6.715-15-15-15H165c-8.27 0-15-6.73-15-15 0-8.258 6.707-14.977 14.96-14.996zM477.114 90l-51.43 180H177.032l-40-180zM150 405c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm167 15c0 24.813 20.188 45 45 45s45-20.188 45-45-20.188-45-45-45-45 20.188-45 45zm45-15c8.27 0 15 6.73 15 15s-6.73 15-15 15-15-6.73-15-15 6.73-15 15-15zm0 0"
                   data-original="#000000"></path>
             </svg>
+            </a>
             <span class="absolute left-auto -ml-1 top-0 rounded-full bg-blue-600 px-1 py-0 text-xs text-white">4</span>
           </span>
             <div  class="inline-block cursor-pointer border-gray-300">
@@ -86,7 +81,7 @@
                                 <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Coupons</a></li>
                                 <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Saved Credits</a></li>
                                 <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Contact Us</a></li>
-                                <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Saved Addresses</a></li>
+                                <li><a href='{{route('home')}}' class="text-sm text-gray-500 hover:text-black">Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -124,11 +119,11 @@
                     <a href="javascript:void(0)"><img src="https://readymadeui.com/readymadeui.svg" alt="logo" class='w-36' />
                     </a>
                 </li>
-                <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
+                <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='{{route('student-dashboard')}}'
                                                                        class='hover:text-[#007bff] text-[#007bff] font-semibold block text-[15px]'>Home</a></li>
                 <li class='group max-lg:border-b max-lg:px-3 max-lg:py-3 relative'>
                     <a href='javascript:void(0)'
-                       class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>Store<svg
+                       class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>Category<svg
                             xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" class="ml-1 inline-block"
                             viewBox="0 0 24 24">
                             <path
@@ -138,99 +133,102 @@
                     </a>
                     <ul
                         class='absolute top-5 max-lg:top-8 left-0 z-50 block space-y-2 shadow-lg bg-white max-h-0 overflow-hidden min-w-[230px] group-hover:opacity-100 group-hover:max-h-[700px] px-6 group-hover:pb-4 group-hover:pt-6 transition-all duration-[400ms]'>
+                        @foreach($categories as $category)
                         <li class='border-b py-3'>
                             <a href='javascript:void(0)'
                                class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
-                                     viewBox="0 0 64 64">
-                                    <path
-                                        d="M61.92 30.93a7.076 7.076 0 0 0-6.05-5.88 8.442 8.442 0 0 0-.87-.04V22A15.018 15.018 0 0 0 40 7H24A15.018 15.018 0 0 0 9 22v3.01a8.442 8.442 0 0 0-.87.04 7.076 7.076 0 0 0-6.05 5.88A6.95 6.95 0 0 0 7 38.7V52a3.009 3.009 0 0 0 3 3v6a1 1 0 0 0 1 1h3a1 1 0 0 0 .96-.73L16.75 55h30.5l1.79 6.27A1 1 0 0 0 50 62h3a1 1 0 0 0 1-1v-6a3.009 3.009 0 0 0 3-3V38.7a6.95 6.95 0 0 0 4.92-7.77ZM11 22A13.012 13.012 0 0 1 24 9h16a13.012 13.012 0 0 1 13 13v3.3a6.976 6.976 0 0 0-5 6.7v3.18a3 3 0 0 0-1-.18H17a3 3 0 0 0-1 .18V32a6.976 6.976 0 0 0-5-6.7Zm37 16v5H16v-5a1 1 0 0 1 1-1h30a1 1 0 0 1 1 1ZM13.25 60H12v-5h2.67ZM52 60h-1.25l-1.42-5H52Zm3.83-23.08a1.008 1.008 0 0 0-.83.99V52a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1V37.91a1.008 1.008 0 0 0-.83-.99 4.994 4.994 0 0 1 .2-9.88A4.442 4.442 0 0 1 9 27h.01a4.928 4.928 0 0 1 3.3 1.26A5.007 5.007 0 0 1 14 32v12a1 1 0 0 0 1 1h34a1 1 0 0 0 1-1V32a5.007 5.007 0 0 1 1.69-3.74 4.932 4.932 0 0 1 3.94-1.22 5.018 5.018 0 0 1 4.31 4.18v.01a4.974 4.974 0 0 1-4.11 5.69Z"
-                                        data-original="#000000" />
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block" viewBox="0 0 64 64">
+                                    <path d="M10 2C7.8 2 6 3.8 6 6v52c0 2.2 1.8 4 4 4h44c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H10zm0 2h44c1.1 0 2 .9 2 2v50c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm4 6v4h36V8H14zm0 10v4h36v-4H14zm0 10v4h24v-4H14z" fill="#000000"/>
                                 </svg>
-                                Furniture Store
+
+                                {{$category->name}}
                             </a>
                         </li>
-                        <li class='border-b py-3'>
-                            <a href='javascript:void(0)'
-                               class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
-                                     viewBox="0 0 1700 1700">
-                                    <path
-                                        d="M916.7 1269.4c-10.7 0-20.4-7.2-23.2-18l-29.9-114.7c-3.3-12.8 4.3-25.9 17.2-29.3 12.8-3.3 25.9 4.3 29.3 17.2l29.9 114.7c3.3 12.8-4.3 25.9-17.2 29.3-2 .5-4.1.8-6.1.8zm-169.4 0c-2 0-4-.3-6.1-.8-12.8-3.3-20.5-16.4-17.2-29.3l29.9-114.7c3.3-12.8 16.4-20.5 29.3-17.2 12.8 3.3 20.5 16.4 17.2 29.3l-29.9 114.7c-2.8 10.8-12.6 18-23.2 18z"
-                                        data-original="#000000" />
-                                    <path
-                                        d="M1066.6 1358.8H597.4c-13.3 0-24-10.7-24-24 0-62.6 50.9-113.5 113.5-113.5h290.4c62.6 0 113.5 50.9 113.5 113.5-.2 13.3-10.9 24-24.2 24zm-440.7-48H1038c-9.6-24.3-33.3-41.5-60.9-41.5H686.8c-27.6.1-51.3 17.3-60.9 41.5zM276.4 762.7c-13.3 0-24-10.7-24-24V395c0-29.7 24.2-53.9 53.9-53.9h1051.4c29.7 0 53.9 24.2 53.9 53.9v297.8c0 13.3-10.7 24-24 24s-24-10.7-24-24V395c0-3.2-2.6-5.9-5.9-5.9H306.3c-3.2 0-5.9 2.6-5.9 5.9v343.7c0 13.2-10.7 24-24 24zm904.5 392H446.5c-13.3 0-24-10.7-24-24s10.7-24 24-24h734.3c13.3 0 24 10.7 24 24s-10.6 24-23.9 24zm0-120.8H446.5c-13.3 0-24-10.7-24-24s10.7-24 24-24h734.3c13.3 0 24 10.7 24 24s-10.6 24-23.9 24z"
-                                        data-original="#000000" />
-                                    <path
-                                        d="M424.1 1358.8H128.4c-25.6 0-46.4-20.8-46.4-46.4V761.1c0-25.6 20.8-46.4 46.4-46.4h295.7c25.6 0 46.4 20.8 46.4 46.4v551.3c0 25.6-20.8 46.4-46.4 46.4zm-294.1-48h292.5V762.7H130z"
-                                        data-original="#000000" />
-                                    <path
-                                        d="M446.5 853.6H106c-13.3 0-24-10.7-24-24s10.7-24 24-24h340.5c13.3 0 24 10.7 24 24s-10.7 24-24 24zm0 414.4H106c-13.3 0-24-10.7-24-24s10.7-24 24-24h340.5c13.3 0 24 10.7 24 24s-10.7 24-24 24zm1125.1 90.8h-368.3c-25.6 0-46.4-20.8-46.4-46.4V715.2c0-25.6 20.8-46.4 46.4-46.4h368.3c25.6 0 46.4 20.8 46.4 46.4v597.2c0 25.6-20.8 46.4-46.4 46.4zm-366.7-48H1570v-594h-365.1z"
-                                        data-original="#000000" />
-                                    <path
-                                        d="M1594 811.8h-413.1c-13.3 0-24-10.7-24-24s10.7-24 24-24H1594c13.3 0 24 10.7 24 24s-10.7 24-24 24zm0 452h-413.1c-13.3 0-24-10.7-24-24s10.7-24 24-24H1594c13.3 0 24 10.7 24 24s-10.7 24-24 24z"
-                                        data-original="#000000" />
-                                </svg>
-                                Electronic Store
-                            </a>
-                        </li>
-                        <li class='border-b py-3'>
-                            <a href='javascript:void(0)'
-                               class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
-                                     viewBox="0 0 407.7 407.7">
-                                    <path
-                                        d="M405.5 118.021a7.93 7.93 0 0 0-.29-.29l-84.16-74.8a7.994 7.994 0 0 0-2.64-1.6l-60.88-21.76a8 8 0 0 0-10.72 7.12c0 1.76-2.64 42.32-43.2 42.96-40.8-.64-43.36-41.2-43.44-42.96a8 8 0 0 0-10.64-7.12l-60.8 22c-.976.357-1.872.9-2.64 1.6l-83.6 74.56a8 8 0 0 0 0 11.6l66.56 67.28v184a8 8 0 0 0 8 8h253.6a8 8 0 0 0 8-8v-184l66.56-67.28a8 8 0 0 0 .29-11.31zm-67.09 55.79v-37.12a8 8 0 0 0-16 0v235.52H84.73v-235.52a8 8 0 0 0-16 0v37.2l-49.2-49.84 76.16-68.16 50.08-18.08c6.204 31.966 37.147 52.851 69.113 46.647 23.607-4.582 42.065-23.04 46.647-46.647l50.08 18.08 75.92 68.16-49.12 49.76z"
-                                        data-original="#000000" />
-                                </svg>
-                                Fashion Store
-                            </a>
-                        </li>
-                        <li class='border-b py-3'>
-                            <a href='javascript:void(0)'
-                               class='hover:text-[#007bff] hover:fill-[#007bff] text-gray-800 text-[15px] flex items-center'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" class="mr-4 inline-block"
-                                     viewBox="0 0 512 512">
-                                    <path
-                                        d="M434.1 243.904h-5.955a95.572 95.572 0 0 1-61.022-22.072l-117.812-98.055a49.716 49.716 0 0 0-31.743-11.481c-27.361 0-49.621 22.26-49.621 49.621v11.586c0 22.572-18.364 40.937-40.937 40.937-15.844 0-30.407-9.279-37.102-23.639l-3.261-6.995c-7.434-15.944-23.604-26.246-41.195-26.246C20.39 157.56 0 177.949 0 203.012v118.792c0 42.954 34.946 77.9 77.9 77.9h356.2c42.954 0 77.9-34.946 77.9-77.9 0-42.954-34.946-77.9-77.9-77.9zm0 125.8H77.9c-17.829 0-33.403-9.799-41.65-24.287h439.5c-8.247 14.488-23.821 24.287-41.65 24.287zM30 315.419V203.012c0-8.521 6.932-15.452 15.452-15.452 5.98 0 11.478 3.503 14.005 8.923l3.261 6.994c11.601 24.884 36.837 40.963 64.293 40.963 39.115 0 70.937-31.822 70.937-70.937v-11.586c0-10.819 8.802-19.621 19.621-19.621a19.66 19.66 0 0 1 12.552 4.54l28.901 24.055-32.93 32.93 21.213 21.213 34.872-34.871 13.031 10.846-31.444 31.444 21.213 21.213 33.386-33.385 13.031 10.846-29.958 29.958 21.213 21.213 32.115-32.115c21.284 15.35 47.024 23.723 73.383 23.723h5.955c24.246 0 44.328 18.112 47.461 41.513H30z"
-                                        data-original="#000000" />
-                                </svg>
-                                Shoes Store
-                            </a>
-                        </li>
+                        @endforeach
                     </ul>
                 </li>
                 <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
-                                                                       class='hover:text-[#007bff] text-gray-800 text-[15px] block'>Feature</a></li>
+                                                                       class='hover:text-[#007bff] text-gray-800 text-[15px] block'>All Book</a></li>
                 <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
                                                                        class='hover:text-[#007bff] text-gray-800 text-[15px] block'>Blog</a></li>
                 <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
                                                                        class='hover:text-[#007bff] text-gray-800 text-[15px] block'>About</a></li>
                 <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
                                                                        class='hover:text-[#007bff] text-gray-800 text-[15px] block'>Contact</a></li>
-                <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
-                                                                       class='hover:text-[#007bff] text-gray-800 text-[15px] block'>Source</a></li>
-                <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
-                                                                       class='hover:text-[#007bff] text-gray-800 text-[15px] block'>Partner</a></li>
-                <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href='javascript:void(0)'
-                                                                       class='hover:text-[#007bff] text-gray-800 text-[15px] block'>More</a></li>
             </ul>
         </div>
 
-        <div id="toggleOpen" class='flex ml-auto lg:hidden'>
-            <button>
-                <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                          clip-rule="evenodd"></path>
-                </svg>
-            </button>
-        </div>
+{{--        <div id="toggleOpen" class='flex ml-auto lg:hidden'>--}}
+{{--            <button>--}}
+{{--                <svg class="w-7 h-7" fill="#000" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                    <path fill-rule="evenodd"--}}
+{{--                          d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"--}}
+{{--                          clip-rule="evenodd"></path>--}}
+{{--                </svg>--}}
+{{--            </button>--}}
+{{--        </div>--}}
     </div>
 </header>
 
 @yield('body')
 
+
+<footer class="bg-white shadow-md border text-black py-4 px-4 font-sans tracking-wide">
+    <div class="text-center">
+        <h6 class="text-lg text-black font-bold">Stay connected with us:</h6>
+
+        <ul class="flex flex-wrap justify-center gap-x-8 gap-4 mt-8 mb-12">
+            <li>
+                <a href='javascript:void(0)'>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="fill-blue-600 w-8 h-8" viewBox="0 0 49.652 49.652">
+                        <path d="M24.826 0C11.137 0 0 11.137 0 24.826c0 13.688 11.137 24.826 24.826 24.826 13.688 0 24.826-11.138 24.826-24.826C49.652 11.137 38.516 0 24.826 0zM31 25.7h-4.039v14.396h-5.985V25.7h-2.845v-5.088h2.845v-3.291c0-2.357 1.12-6.04 6.04-6.04l4.435.017v4.939h-3.219c-.524 0-1.269.262-1.269 1.386v2.99h4.56z" data-original="#000000" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href='javascript:void(0)'>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 112.196 112.196">
+                        <circle cx="56.098" cy="56.097" r="56.098" fill="#007ab9" data-original="#007ab9" />
+                        <path fill="#fff" d="M89.616 60.611v23.128H76.207V62.161c0-5.418-1.936-9.118-6.791-9.118-3.705 0-5.906 2.491-6.878 4.903-.353.862-.444 2.059-.444 3.268v22.524h-13.41s.18-36.546 0-40.329h13.411v5.715c-.027.045-.065.089-.089.132h.089v-.132c1.782-2.742 4.96-6.662 12.085-6.662 8.822 0 15.436 5.764 15.436 18.149zm-54.96-36.642c-4.587 0-7.588 3.011-7.588 6.967 0 3.872 2.914 6.97 7.412 6.97h.087c4.677 0 7.585-3.098 7.585-6.97-.089-3.956-2.908-6.967-7.496-6.967zm-6.791 59.77H41.27v-40.33H27.865v40.33z" data-original="#f1f2f2" />
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href='javascript:void(0)'>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 152 152">
+                        <linearGradient id="a" x1="22.26" x2="129.74" y1="22.26" y2="129.74" gradientUnits="userSpaceOnUse">
+                            <stop offset="0" stop-color="#fae100" />
+                            <stop offset=".15" stop-color="#fcb720" />
+                            <stop offset=".3" stop-color="#ff7950" />
+                            <stop offset=".5" stop-color="#ff1c74" />
+                            <stop offset="1" stop-color="#6c1cd1" />
+                        </linearGradient>
+                        <g data-name="Layer 2">
+                            <g data-name="03.Instagram">
+                                <rect width="152" height="152" fill="url(#a)" data-original="url(#a)" rx="76" />
+                                <g fill="#fff">
+                                    <path fill="#ffffff10" d="M133.2 26c-11.08 20.34-26.75 41.32-46.33 60.9S46.31 122.12 26 133.2q-1.91-1.66-3.71-3.46A76 76 0 1 1 129.74 22.26q1.8 1.8 3.46 3.74z" data-original="#ffffff10" />
+                                    <path d="M94 36H58a22 22 0 0 0-22 22v36a22 22 0 0 0 22 22h36a22 22 0 0 0 22-22V58a22 22 0 0 0-22-22zm15 54.84A18.16 18.16 0 0 1 90.84 109H61.16A18.16 18.16 0 0 1 43 90.84V61.16A18.16 18.16 0 0 1 61.16 43h29.68A18.16 18.16 0 0 1 109 61.16z" data-original="#ffffff" />
+                                    <path d="m90.59 61.56-.19-.19-.16-.16A20.16 20.16 0 0 0 76 55.33 20.52 20.52 0 0 0 55.62 76a20.75 20.75 0 0 0 6 14.61 20.19 20.19 0 0 0 14.42 6 20.73 20.73 0 0 0 14.55-35.05zM76 89.56A13.56 13.56 0 1 1 89.37 76 13.46 13.46 0 0 1 76 89.56zm26.43-35.18a4.88 4.88 0 0 1-4.85 4.92 4.81 4.81 0 0 1-3.42-1.43 4.93 4.93 0 0 1 3.43-8.39 4.82 4.82 0 0 1 3.09 1.12l.1.1a3.05 3.05 0 0 1 .44.44l.11.12a4.92 4.92 0 0 1 1.1 3.12z" data-original="#ffffff" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href='javascript:void(0)'>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 1227 1227">
+                        <path d="M613.5 0C274.685 0 0 274.685 0 613.5S274.685 1227 613.5 1227 1227 952.315 1227 613.5 952.315 0 613.5 0z" data-original="#000000" />
+                        <path fill="#fff" d="m680.617 557.98 262.632-305.288h-62.235L652.97 517.77 470.833 252.692H260.759l275.427 400.844-275.427 320.142h62.239l240.82-279.931 192.35 279.931h210.074L680.601 557.98zM345.423 299.545h95.595l440.024 629.411h-95.595z" data-original="#ffffff" />
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <p class="text-base text-black font-bold">© Library Management System. All rights reserved.</p>
+    </div>
+</footer>
 
 <script>
     var toggleOpen = document.getElementById('toggleOpen');
@@ -288,6 +286,31 @@
             dropdownMenu.classList.add('hidden');
         }
     });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{{asset('/')}}/student/assets/owlcarousel/owl.carousel.min.js"></script>
+
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    })
 </script>
 </body>
 </html>
