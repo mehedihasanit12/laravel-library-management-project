@@ -82,6 +82,12 @@ class Book extends Model
         self::$book->delete();
     }
 
+    public static function search($query)
+    {
+        return self::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('short_description', 'LIKE', "%{$query}%");
+    }
+
     public function author()
     {
         return $this->belongsTo(Author::class);

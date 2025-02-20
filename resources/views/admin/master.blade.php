@@ -166,7 +166,7 @@
                                     <path d="M12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v10a1 1 0 0 1-1 1z" data-original="#000000" />
                                     <path d="M6 12a1 1 0 0 1 1-1h10a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1z" data-original="#000000" />
                                 </svg>
-                                <span class="overflow-hidden text-ellipsis whitespace-nowrap">Member Module</span>
+                                <span class="overflow-hidden text-ellipsis whitespace-nowrap">Student Module</span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      class="arrowIcon w-3 fill-current -rotate-90 ml-auto transition-all duration-500"
                                      viewBox="0 0 451.847 451.847">
@@ -177,15 +177,15 @@
                             </a>
                             <ul class="sub menu max-h-0 overflow-hidden transition-[max-height] duration-500 ease-in-out ml-8">
                                 <li>
-                                    <a href="{{route('member.create')}}"
+                                    <a href="{{route('student.create')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
-                                        <span>Add Member</span>
+                                        <span>Add Student</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('member.index')}}"
+                                    <a href="{{route('student.index')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
-                                        <span>Manage Member</span>
+                                        <span>Manage Student</span>
                                     </a>
                                 </li>
                             </ul>

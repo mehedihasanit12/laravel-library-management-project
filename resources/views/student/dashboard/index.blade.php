@@ -52,7 +52,7 @@
                                     data-original="#000000"></path>
                             </svg>
                         </div>
-                        <button type="button" class="text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded" {{$book->stock==0 ? 'hidden' : ''}}>Add to cart</button>
+                        <a href="{{route('cart.add', ['id' => $book->id])}}" class="flex items-center justify-center text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded" {{$book->stock==0 ? 'hidden' : ''}}>Add to cart</a>
                     </div>
                 </div>
             </div>

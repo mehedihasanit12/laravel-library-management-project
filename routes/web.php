@@ -5,7 +5,8 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\MemberController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\StudentAuthController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,13 @@ Route::get('/student-register', [StudentAuthController::class, 'register'])->nam
 
 Route::get('/student/dashboard', [StudentDashboardController::class, 'index'])->name('student-dashboard');
 Route::get('/student/book', [StudentDashboardController::class, 'book'])->name('student-book');
-Route::resource('cart', CartController::class);
+
+Route::get('/cart/index', [CartController::class, 'index'])->name('cart.index');
+Route::get('/cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
+
+Route::get('/search/index', [SearchController::class, 'index'])->name('search.index');
+Route::get('/search/search', [SearchController::class, 'search'])->name('search.search');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
 
@@ -32,5 +39,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('category', CategoryController::class);
     Route::resource('author', AuthorController::class);
     Route::resource('book', BookController::class);
-    Route::resource('member', MemberController::class);
+    Route::resource('student', StudentController::class);
 });
