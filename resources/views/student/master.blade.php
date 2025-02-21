@@ -19,8 +19,8 @@
         <div class='left-10 absolute z-50 flex items-center px-4 py-2.5 rounded max-lg:hidden'>
 
             <form action="{{ route('search.search') }}" method="GET">
-                <div class="flex rounded-md border-2 border-blue-500 overflow-hidden max-w-md mx-auto font-[sans-serif]">
-                    <input type="text" name="search" placeholder="Search Something..."
+                <div class="relative flex rounded-md border-2 border-blue-500 overflow-hidden max-w-md mx-auto font-[sans-serif]">
+                    <input type="text" id="search" name="search"  placeholder="Search Something..."
                            class="w-full outline-none bg-white text-gray-600 text-sm px-4 py-3" />
                     <button type='submit' class="flex items-center justify-center bg-[#007bff] px-5">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-white">
@@ -31,6 +31,11 @@
                     </button>
                 </div>
             </form>
+            <div id="ajaxSearchResultDiv" class="hidden sm:min-w-[290px] max-sm:min-w-[250px] bg-white block shadow-lg py-6 px-6 rounded absolute right-[0px] top-[60px]">
+                <ul id="ajaxSearchResult" class="">
+                    <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Search....</a></li>
+                </ul>
+            </div>
 
         </div>
 
@@ -328,6 +333,53 @@
             }
         }
     })
+</script>
+
+<script>
+    $(document).ready(function () {
+        // যখন ইনপুটে ক্লিক করবে তখন #ajaxSearchResult দেখাবে
+        $('#search').on('focus', function () {
+            $('#ajaxSearchResultDiv').removeClass('hidden'); // hidden ক্লাস সরাবে
+        });
+
+        // যখন ইউজার অন্য কোথাও ক্লিক করবে তখন #ajaxSearchResult হাইড হবে
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('#search, #ajaxSearchResult').length) {
+                $('#ajaxSearchResultDiv').addClass('hidden'); // hidden ক্লাস যোগ করবে
+            }
+        });
+
+        $('#search').on('keyup', function () {
+            var search = $(this).val(); // ইউজারের ইনপুট ভ্যালু
+
+            if (search !== '') { // ইনপুট ফাঁকা না হলে সার্চ করবে
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('search.ajax-search') }}',
+                    data: { search: search },
+                    dataType: 'JSON', // এটি ঠিকভাবে JSON হিসেবে রেসপন্স নেবে
+                    success: function (response) {
+                        var item = '';
+
+                        // রেসপন্সে কোনো ডাটা না থাকলে মেসেজ দেখাবে
+                        if (response.length === 0) {
+                            item += '<li class="text-sm text-gray-500">No results found</li>';
+                        } else {
+                            $.each(response, function (key, value) {
+                                item += `<li class="flex items-center gap-2"> <img style="width: 50px; height: 50px;" src="${value.image_url}" alt=""> <a href="/books/${value.id}" class="text-sm text-gray-500 hover:text-black">${value.name} By ${value.author_name}</a></li>`;
+                            });
+                        }
+
+                        $('#ajaxSearchResult').empty(); // পুরনো রেজাল্ট মুছে ফেলবে
+                        $('#ajaxSearchResult').append(item); // নতুন রেজাল্ট দেখাবে
+                    }
+                });
+            } else {
+                $('#ajaxSearchResult').empty(); // যদি ইনপুট ফাঁকা হয়, তখন রেজাল্ট লিস্ট ক্লিয়ার করবে
+            }
+        });
+    });
+
 </script>
 </body>
 </html>

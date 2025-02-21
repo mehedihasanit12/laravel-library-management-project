@@ -30,7 +30,8 @@ Route::get('/cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name
 Route::get('/cart/delete/{id}', [CartController::class, 'delete'])->name('cart.delete');
 
 Route::get('/search/index', [SearchController::class, 'index'])->name('search.index');
-Route::get('/search/search', [SearchController::class, 'search'])->name('search.search');
+Route::get('/search', [SearchController::class, 'search'])->name('search.search');
+Route::get('/search/ajax', [SearchController::class, 'ajaxSearch'])->name('search.ajax-search');
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
 

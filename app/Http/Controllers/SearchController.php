@@ -19,4 +19,19 @@ class SearchController extends Controller
             'search' => $request->search
         ]);
     }
+
+    public function ajaxSearch()
+    {
+        $search = $_GET['search'];
+
+        $books = Book::search($search)->get();
+
+        $books->transform(function ($book) {
+            $book->image_url = asset($book->image);
+            $book->author_name = $book->author->name;
+            return $book;
+        });
+
+        return response()->json($books);
+    }
 }

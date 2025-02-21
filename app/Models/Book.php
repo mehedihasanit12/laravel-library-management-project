@@ -85,7 +85,9 @@ class Book extends Model
     public static function search($query)
     {
         return self::where('name', 'LIKE', "%{$query}%")
-            ->orWhere('short_description', 'LIKE', "%{$query}%");
+            ->orWhereHas('author', function ($q) use ($query) {
+                $q->where('name', 'LIKE', "%{$query}%");
+            });
     }
 
     public function author()
