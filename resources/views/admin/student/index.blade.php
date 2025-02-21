@@ -18,13 +18,13 @@
                     Name
                 </th>
                 <th class="border border-gray-300 p-4 text-sm font-medium text-white">
-                    Status
+                    Email
                 </th>
                 <th class="border border-gray-300 p-4 text-sm font-medium text-white">
                     Image
                 </th>
                 <th class="border border-gray-300 p-4 text-sm font-medium text-white">
-                    Description
+                    Fine
                 </th>
                 <th class="border border-gray-300 p-4 text-sm font-medium text-white">
                     Actions
@@ -33,25 +33,25 @@
             </thead>
 
             <tbody class="whitespace-nowrap">
-            @foreach($categories as $category)
+            @foreach($students as $student)
                 <tr class="even:bg-blue-50">
                     <td class="border border-gray-300 p-4 text-sm text-black">
                         {{$loop->iteration}}
                     </td>
                     <td class="border border-gray-300 p-4 text-sm text-black">
-                        {{$category->name}}
+                        {{$student->name}}
                     </td>
                     <td class="border border-gray-300 p-4 text-sm text-black">
-                        {{$category->status==1 ? 'Published' : 'Unpublished'}}
+                        {{$student->email}}
                     </td>
                     <td class=" p-4 text-sm text-black flex justify-center">
-                        <img src="{{asset($category->image)}}" height="50" width="50" alt="">
+                        <img src="{{asset($student->image)}}" height="50" width="50" alt="">
                     </td>
                     <td class="border border-gray-300 p-4 text-sm text-black">
-                        {{$category->description}}
+                        {{$student->fine}}
                     </td>
                     <td class="p-4 flex justify-center items-center">
-                        <a href="{{route('category.edit', $category->id)}}" class="mr-4" title="Edit">
+                        <a href="{{route('admin-student.edit', $student->id)}}" class="mr-4" title="Edit">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-blue-500 hover:fill-blue-700"
                                  viewBox="0 0 348.882 348.882">
                                 <path
@@ -62,7 +62,7 @@
                                     data-original="#000000" />
                             </svg>
                         </a>
-                        <form action="{{route('category.destroy', $category->id)}}" method="POST">
+                        <form action="{{route('admin-student.destroy', $student->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" onclick="return confirm('Are You Sure?')" class="mr-4" title="Delete">

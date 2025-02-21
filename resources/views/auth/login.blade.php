@@ -77,7 +77,7 @@
                    class="w-full block text-center py-2.5 px-4 text-sm font-semibold tracking-wider rounded text-white bg-gray-800 hover:bg-[#222] focus:outline-none">
                     Login
                 </button>
-                <p class="text-gray-800 text-sm text-center mt-6">Don't have an account <a href="{{route('student.register')}}"
+                <p class="text-gray-800 text-sm text-center mt-6">Don't have an account <a href="{{route('student-register')}}"
                                                                                            class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
             </div>
 

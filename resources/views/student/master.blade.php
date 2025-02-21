@@ -63,7 +63,7 @@
                   data-original="#000000"></path>
             </svg>
             </a>
-            <span class="absolute left-auto -ml-1 top-0 rounded-full bg-blue-600 px-1 py-0 text-xs text-white">4</span>
+            <span class="absolute left-auto -ml-1 top-0 rounded-full bg-blue-600 px-1 py-0 text-xs text-white">{{Cart::content()->count()}}</span>
           </span>
             <div  class="inline-block cursor-pointer border-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24"
@@ -77,33 +77,18 @@
             <div class='flex items-center max-sm:ml-auto space-x-6'>
                 <ul>
                     <li id="profile-dropdown-toggle"
-                        class="relative px-1 after:absolute after:bg-black after:w-full after:h-[2px] after:block after:top-8 after:left-0 after:transition-all after:duration-300">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" class="cursor-pointer hover:fill-black"
-                             viewBox="0 0 512 512">
-                            <path
-                                d="M437.02 74.981C388.667 26.629 324.38 0 256 0S123.333 26.629 74.98 74.981C26.629 123.333 0 187.62 0 256s26.629 132.667 74.98 181.019C123.333 485.371 187.62 512 256 512s132.667-26.629 181.02-74.981C485.371 388.667 512 324.38 512 256s-26.629-132.667-74.98-181.019zM256 482c-66.869 0-127.037-29.202-168.452-75.511C113.223 338.422 178.948 290 256 290c-49.706 0-90-40.294-90-90s40.294-90 90-90 90 40.294 90 90-40.294 90-90 90c77.052 0 142.777 48.422 168.452 116.489C383.037 452.798 322.869 482 256 482z"
-                                data-original="#000000" />
-                        </svg>
+                        class="relative px-1 after:absolute after:bg-black after:w-full after:h-[2px] after:block after:top-10 after:left-0 after:transition-all after:duration-300">
+                        <img src="https://readymadeui.com/team-1.webp" width="24" height="24" alt="profile-pic" class="w-9 h-9 rounded-full border-2 border-gray-300 cursor-pointer">
                         <div id="profile-dropdown-menu"
                              class="hidden bg-white block z-20 shadow-lg py-6 px-6 rounded sm:min-w-[320px] max-sm:min-w-[250px] absolute right-0 top-10">
                             <h6 class="font-semibold text-[15px]">Welcome</h6>
-                            <p class="text-sm text-gray-500 mt-1">To access account and manage orders</p>
-                            <button type='button'
-                                    class="bg-transparent border border-gray-300 hover:border-black rounded px-4 py-2 mt-4 text-sm text-black">LOGIN
-                                / SIGNUP</button>
+                            <p class="text-sm text-gray-500 mt-1 font-bold">{{Session::get('name')}}</p>
                             <hr class="border-b-0 my-4" />
                             <ul class="space-y-1.5">
-                                <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Order</a></li>
+                                <li><a href="" class="text-sm text-gray-500 hover:text-black">Order</a></li>
                                 <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Wishlist</a></li>
-                                <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Gift Cards</a></li>
-                                <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Contact Us</a></li>
-                            </ul>
                             <hr class="border-b-0 my-4" />
-                            <ul class="space-y-1.5">
-                                <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Coupons</a></li>
-                                <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Saved Credits</a></li>
-                                <li><a href='javascript:void(0)' class="text-sm text-gray-500 hover:text-black">Contact Us</a></li>
-                                <li><a href='{{route('home')}}' class="text-sm text-gray-500 hover:text-black">Logout</a></li>
+                                <li><a href="{{route('student.logout')}}" class="text-sm text-gray-500 hover:text-black">Logout</a></li>
                             </ul>
                         </div>
                     </li>

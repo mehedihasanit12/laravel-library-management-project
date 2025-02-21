@@ -18,12 +18,12 @@
                 <h2 class="text-gray-800 text-center text-2xl font-bold">Library Management System</h2>
                 <div class="mt-8 space-y-4">
                     <div class="!mt-8">
-                        <a href="{{route('student.login')}}" class="w-full block text-center py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+                        <a href="{{route('student-login')}}" class="w-full block text-center py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
                             Student Log-in Page
                         </a>
                     </div>
                     <div class="!mt-8">
-                        <a href="{{route('student.register')}}" class="w-full block text-center py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
+                        <a href="{{route('student-register')}}" class="w-full block text-center py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-zinc-600 hover:bg-zinc-700 focus:outline-none">
                             Librarian Login Page
                         </a>
                     </div>

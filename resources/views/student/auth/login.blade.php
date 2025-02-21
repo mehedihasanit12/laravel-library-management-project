@@ -14,12 +14,14 @@
      style="background-image: url({{asset('/student/assets/image/library-bg-2.jpg')}}); background-repeat: no-repeat; background-size: cover;"
 >
     <div class="max-w-md w-full mx-auto">
-        <form class="bg-opacity-70 bg-white rounded p-6 shadow-[0_2px_16px_-3px_rgba(125,126,131,0.3)]">
+        <form action="{{route('student.login')}}" method="POST" class="bg-opacity-70 bg-white rounded p-6 shadow-[0_2px_16px_-3px_rgba(125,126,131,0.3)]">
+            @csrf
             <div class="mb-12">
                 <h3 class="text-gray-800 text-3xl font-bold text-center">Login</h3>
             </div>
 
             <div>
+                <h1 class="font-bold text-center text-red-400 mb-4">{{session('message')}}</h1>
                 <div class="relative flex items-center">
                     <input name="email" type="text" required
                            class="rounded-md bg-transparent w-full text-sm text-gray-800 border-b border-gray-400 focus:border-gray-800 pl-2 pr-8 py-3 outline-none placeholder:text-gray-800"
@@ -72,11 +74,11 @@
             </div>
 
             <div class="mt-12">
-                <a href="{{route('student-dashboard')}}"
+                <button type="submit"
                         class="w-full block text-center py-2.5 px-4 text-sm font-semibold tracking-wider rounded text-white bg-gray-800 hover:bg-[#222] focus:outline-none">
                     Login
-                </a>
-                <p class="text-gray-800 text-sm text-center mt-6">Don't have an account <a href="{{route('student.register')}}"
+                </button>
+                <p class="text-gray-800 text-sm text-center mt-6">Don't have an account <a href="{{route('student-register')}}"
                                                                                            class="text-blue-600 font-semibold hover:underline ml-1 whitespace-nowrap">Register here</a></p>
             </div>
 

@@ -17,8 +17,10 @@ Route::get('/', function () {
 
 //student-auth
 
-Route::get('/student-login', [StudentAuthController::class, 'login'])->name('student.login');
-Route::get('/student-register', [StudentAuthController::class, 'register'])->name('student.register');
+Route::get('/student-login', [StudentAuthController::class, 'login'])->name('student-login');
+Route::get('/student-register', [StudentAuthController::class, 'register'])->name('student-register');
+Route::post('/studentLogin', [StudentAuthController::class, 'studentLogin'])->name('student.login');
+Route::get('/studentLogout', [StudentAuthController::class, 'studentLogout'])->name('student.logout');
 
 //student
 
@@ -40,5 +42,5 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('category', CategoryController::class);
     Route::resource('author', AuthorController::class);
     Route::resource('book', BookController::class);
-    Route::resource('student', StudentController::class);
+    Route::resource('admin-student', StudentController::class);
 });

@@ -12,7 +12,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('admin.student.index');
+        return view('admin.student.index', [
+            'students' => Student::all()
+        ]);
     }
 
     /**
@@ -28,13 +30,14 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Student::newStudent($request);
+        return back()->with('message', 'Student Info Add successfully.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show(string $id)
     {
         //
     }
@@ -42,23 +45,26 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit(string $id)
     {
-        //
+        return view('admin.student.edit', [
+            'student' => Student::find($id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, string $id)
     {
-        //
+        Student::updateStudent($request, $id);
+        return redirect('/admin-student')->with('message', 'Student Info Update successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy(string $id)
     {
         //
     }
