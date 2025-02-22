@@ -33,7 +33,7 @@
                                         <path d="M112 50H12C5.4 50 0 55.4 0 62s5.4 12 12 12h100c6.6 0 12-5.4 12-12s-5.4-12-12-12z" data-original="#000000"></path>
                                     </svg>
                                 </button>
-                                <span class="font-bold text-sm leading-[18px]">2</span>
+                                <span class="font-bold text-sm leading-[18px]">{{$cart_item->qty}}</span>
                                 <button type="button"
                                         class="flex items-center justify-center w-5 h-5 bg-gray-800 outline-none rounded-full">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-2 fill-white" viewBox="0 0 42 42">
@@ -58,31 +58,20 @@
                                 </svg>
                             </a>
                         </div>
-                        <h3 class="text-sm sm:text-base font-bold text-gray-800 mt-auto">$120.00</h3>
+                        <h3 class="text-sm sm:text-base font-bold text-gray-800 mt-auto">TK {{$cart_item->price}}</h3>
                     </div>
                 </div>
                 @endforeach
             </div>
 
             <div class="bg-white rounded-md px-4 py-6 h-max shadow-[0_2px_12px_-3px_rgba(61,63,68,0.3)]">
-                <ul class="text-gray-800 space-y-4">
-                    <li class="flex flex-wrap gap-4 text-sm">Subtotal <span class="ml-auto font-bold">$200.00</span></li>
-                    <li class="flex flex-wrap gap-4 text-sm">Shipping <span class="ml-auto font-bold">$2.00</span></li>
-                    <li class="flex flex-wrap gap-4 text-sm">Tax <span class="ml-auto font-bold">$4.00</span></li>
-                    <hr class="border-gray-300" />
-                    <li class="flex flex-wrap gap-4 text-sm font-bold">Total <span class="ml-auto">$206.00</span></li>
-                </ul>
+
 
                 <div class="mt-8 space-y-2">
-                    <button type="button" class="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-md">Buy Now</button>
-                    <button type="button" class="text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent hover:bg-gray-100 text-gray-800 border border-gray-300 rounded-md">Continue Shopping  </button>
+                    <a href="{{route('student-book-issue')}}" class="block text-center text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-gray-800 hover:bg-gray-900 text-white rounded-md">Apply To Brrow</a>
+                    <a href="{{route('student-dashboard')}}" class="block text-center text-sm px-4 py-2.5 w-full font-semibold tracking-wide bg-transparent hover:bg-gray-100 text-gray-800 border border-gray-300 rounded-md">Continue Select Book </a>
                 </div>
 
-                <div class="mt-4 flex flex-wrap justify-center gap-4">
-                    <img src='https://readymadeui.com/images/master.webp' alt="card1" class="w-10 object-contain" />
-                    <img src='https://readymadeui.com/images/visa.webp' alt="card2" class="w-10 object-contain" />
-                    <img src='https://readymadeui.com/images/american-express.webp' alt="card3" class="w-10 object-contain" />
-                </div>
             </div>
         </div>
     </div>

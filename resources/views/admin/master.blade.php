@@ -202,7 +202,7 @@
                                     <path d="M12 18a1 1 0 0 1-1-1V7a1 1 0 0 1 2 0v10a1 1 0 0 1-1 1z" data-original="#000000" />
                                     <path d="M6 12a1 1 0 0 1 1-1h10a1 1 0 0 1 0 2H7a1 1 0 0 1-1-1z" data-original="#000000" />
                                 </svg>
-                                <span class="overflow-hidden text-ellipsis whitespace-nowrap">Book Issue Module</span>
+                                <span class="overflow-hidden text-ellipsis whitespace-nowrap">Borrow Book Module</span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                      class="arrowIcon w-3 fill-current -rotate-90 ml-auto transition-all duration-500"
                                      viewBox="0 0 451.847 451.847">
@@ -215,13 +215,13 @@
                                 <li>
                                     <a href="{{route('admin-student.create')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
-                                        <span>Create Book Issue</span>
+                                        <span>Add Borrow Book</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin-student.index')}}"
+                                    <a href="{{route('book-issue.index')}}"
                                        class="text-gray-800 text-sm block cursor-pointer hover:bg-gray-100 rounded-md px-3 py-2 transition-all duration-300">
-                                        <span>Manage Book Issue</span>
+                                        <span>Manage Borrow Book</span>
                                     </a>
                                 </li>
                             </ul>

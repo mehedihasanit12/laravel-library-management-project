@@ -11,7 +11,7 @@
     <div class="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
         <img src="https://img.freepik.com/free-photo/abundant-collection-antique-books-wooden-shelves-generated-by-ai_188544-29660.jpg?t=st=1739981578~exp=1739985178~hmac=60d05372252fedc16ffe6f24f0be5814003082e0eeed744a97017151414fe7c1&w=996" alt="Banner Image" class="absolute inset-0 w-full h-full object-cover" />
 
-        <div class="min-h-[350px] relative z-100 h-full max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
+        <div class="min-h-[350px] relative z-20 h-full max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
             <h2 class="sm:text-4xl text-2xl font-bold mb-6">Unlock a World of Knowledge at Your Fingertips</h2>
             <p class="sm:text-lg text-base text-center text-gray-200">Discover a vast collection of books, research papers, and digital resources tailored to fuel your curiosity and academic growth. Whether you're a student, a researcher, or an avid reader, our library provides a seamless experience to explore, learn, and expand your knowledge. Start your journey today!</p>
 
@@ -40,7 +40,7 @@
                 <div>
                     <div class="flex gap-2">
                         <h5 class="text-base text-xl font-bold text-gray-800">{{$book->name}}</h5>
-                        <h6 class="text-base text-sm {{$book->stock==0 ? 'text-red-800' : 'text-green-800'}} font-bold ml-auto">{{$book->stock==0 ? 'Not Available' : 'Available'}}</h6>
+                        <h6 class="text-base text-sm font-bold ml-auto"><span class="{{$book->stock==0 ? 'bg-red-600' : 'bg-green-600'}} px-2 py-1 text-xs text-white rounded">{{$book->stock==0 ? 'Not Available' : 'Available'}}</span></h6>
                     </div>
                     <p class="text-gray-500 text-[13px] mt-2">{{$book->author->name}}</p>
                     <div class="flex items-center gap-2 mt-4">
@@ -52,7 +52,7 @@
                                     data-original="#000000"></path>
                             </svg>
                         </div>
-                        <a href="{{route('cart.add', ['id' => $book->id])}}" class="flex items-center justify-center text-sm px-2 h-9 font-semibold w-full bg-blue-600 hover:bg-blue-700 text-white tracking-wide ml-auto outline-none border-none rounded" {{$book->stock==0 ? 'hidden' : ''}}>Add to cart</a>
+                        <a href="{{route('cart.add', ['id' => $book->id])}}" class="flex items-center justify-center text-sm px-2 h-9 font-semibold w-full bg-blue-600  text-white tracking-wide ml-auto outline-none border-none rounded {{$book->stock==0 ? 'hover:bg-red-700' : 'hover:bg-blue-700'}} {{$book->stock==0 ? 'bg-red-600' : ''}}" >{{$book->stock==0 ? 'Not Available' : 'Add To Cart'}}</a>
                     </div>
                 </div>
             </div>

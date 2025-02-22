@@ -19,11 +19,15 @@ class CartController extends Controller
     public function addToCart($id)
     {
         $book = Book::find($id);
+        if ($book->stock==0)
+        {
+            return redirect('/student/dashboard');
+        }
         Cart::add([
             'id' => $id,
             'name' => $book->name,
             'qty' => 1,
-            'price' => 9.99,
+            'price' => $book->selling_price,
             'options' => [
                 'image' => $book->image,
                 'author' => $book->author->name

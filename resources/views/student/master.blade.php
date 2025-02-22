@@ -78,7 +78,11 @@
                 <ul>
                     <li id="profile-dropdown-toggle"
                         class="relative px-1 after:absolute after:bg-black after:w-full after:h-[2px] after:block after:top-10 after:left-0 after:transition-all after:duration-300">
-                        <img src="https://readymadeui.com/team-1.webp" width="24" height="24" alt="profile-pic" class="w-9 h-9 rounded-full border-2 border-gray-300 cursor-pointer">
+                        @if(file_exists(Session::get('image')))
+                            <img src="{{asset(Session::get('image'))}}" width="24" height="24" alt="profile-pic" class="w-9 h-9 rounded-full border-2 border-gray-300 cursor-pointer">
+                        @else
+                            <img src="https://readymadeui.com/team-1.webp" width="24" height="24" alt="profile-pic" class="w-9 h-9 rounded-full border-2 border-gray-300 cursor-pointer">
+                        @endif
                         <div id="profile-dropdown-menu"
                              class="hidden bg-white block z-20 shadow-lg py-6 px-6 rounded sm:min-w-[320px] max-sm:min-w-[250px] absolute right-0 top-10">
                             <h6 class="font-semibold text-[15px]">Welcome</h6>

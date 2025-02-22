@@ -12,7 +12,9 @@ class BookIssueController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.book-issue.index', [
+            'book_issues' => BookIssue::all()
+        ]);
     }
 
     /**

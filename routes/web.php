@@ -3,9 +3,11 @@
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\BookIssueController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\StudentBookIssueController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\StudentDashboardController;
 use App\Http\Controllers\StudentAuthController;
@@ -26,6 +28,8 @@ Route::get('/studentLogout', [StudentAuthController::class, 'studentLogout'])->n
 
 Route::get('/student/dashboard', [StudentDashboardController::class, 'index'])->name('student-dashboard');
 Route::get('/student/book', [StudentDashboardController::class, 'book'])->name('student-book');
+Route::get('/student/book-issue', [StudentBookIssueController::class, 'IssueBook'])->name('student-book-issue');
+Route::get('/student/success', [StudentBookIssueController::class, 'successPage'])->name('student-success-page');
 
 Route::get('/cart/index', [CartController::class, 'index'])->name('cart.index');
 Route::get('/cart/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('cart.add');
@@ -43,4 +47,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',
     Route::resource('author', AuthorController::class);
     Route::resource('book', BookController::class);
     Route::resource('admin-student', StudentController::class);
+    Route::resource('book-issue', BookIssueController::class);
+
+
 });
