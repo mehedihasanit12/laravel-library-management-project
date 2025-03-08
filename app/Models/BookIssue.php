@@ -14,8 +14,8 @@ class BookIssue extends Model
         self::$bookissue = new BookIssue();
 
         self::$bookissue->student_id = Session::get('id');
-        self::$bookissue->issue_date = date('Y-m-d');
-        self::$bookissue->issue_timestamp = strtotime(date('Y-m-d'));
+        self::$bookissue->issue_date = date('Y-m-d H:i:s');;
+        self::$bookissue->issue_timestamp = strtotime(date('Y-m-d H:i:s'));
         self::$bookissue->issue_book_count = Cart::content()->count();
         self::$bookissue->save();
 

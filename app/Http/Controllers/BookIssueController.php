@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookIssue;
+use App\Models\IssuDetail;
 use Illuminate\Http\Request;
 
 class BookIssueController extends Controller
@@ -38,7 +39,10 @@ class BookIssueController extends Controller
      */
     public function show(BookIssue $bookIssue)
     {
-        //
+        return view('admin.book-issue.detail', [
+            'book_issue_detail' => BookIssue::find($bookIssue->id),
+            'book_issue_books' => IssuDetail::where('book_issue_id', $bookIssue->id)->get()
+        ]);
     }
 
     /**

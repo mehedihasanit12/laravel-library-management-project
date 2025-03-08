@@ -63,7 +63,7 @@
                         {{$book_issue->issue_book_count}}
                     </td>
                     <td class="p-4 flex justify-center items-center">
-                        <a href="{{route('book-issue.show', $book_issue->id)}}" class="mr-4" title="Edit">
+                        <a href="{{route('book-issue.show', $book_issue->id)}}" class="mr-4" title="Detail">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 fill-blue-500 hover:fill-blue-700"
                                  viewBox="0 0 24 24">
                                 <path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12c-3.313 0-6-2.686-6-6s2.687-6 6-6 6 2.686 6 6-2.687 6-6 6zm0-10c-2.209 0-4 1.791-4 4s1.791 4 4 4 4-1.791 4-4-1.791-4-4-4zm-7-3h2v-2h2v2h2v2h-2v2h-2v-2h-2v-2z"/>
