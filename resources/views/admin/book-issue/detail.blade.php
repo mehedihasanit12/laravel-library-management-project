@@ -37,8 +37,8 @@
                 <td class="border border-gray-300 p-4 text-sm text-black">
                     Return Date
                 </td>
-                <td class=" p-4 text-sm text-black flex justify-center">
-                    {{$book_issue_detail->return_date}}
+                <td class=" p-4 text-sm text-black">
+                    {{ date("F j, Y, g:i a", $book_issue_detail->return_timestamp)}}
                 </td>
             </tr>
             <tr class="bg-gray-50">
@@ -46,7 +46,7 @@
                     Borrow Status
                 </td>
                 <td class="border border-gray-300 p-4 text-sm text-black">
-                    <span class="bg-orange-500 px-2 py-1 text-xs text-white rounded">{{$book_issue_detail->issue_status}}</span>
+                    <span class=" {{$book_issue_detail->issue_status == 'Pending' ? 'bg-orange-500' : ''}} {{$book_issue_detail->issue_status == 'Issued' ? 'bg-green-500' : ''}} {{$book_issue_detail->issue_status == 'Cancel' ? 'bg-red-500' : ''}} {{$book_issue_detail->issue_status == 'Returned' ? 'bg-sky-500' : ''}} px-2 py-1 text-xs text-white rounded">{{$book_issue_detail->issue_status}}</span>
                 </td>
             </tr>
             <tr class="bg-gray-50">
@@ -55,6 +55,14 @@
                 </td>
                 <td class="border border-gray-300 p-4 text-sm text-black">
                     {{$book_issue_detail->issue_book_count}}
+                </td>
+            </tr>
+            <tr class="bg-gray-50">
+                <td class="border border-gray-300 p-4 text-sm text-black">
+                    Student Fine
+                </td>
+                <td class="border border-gray-300 p-4 text-sm text-black">
+                    {{$book_issue_detail->student->fine}}
                 </td>
             </tr>
 

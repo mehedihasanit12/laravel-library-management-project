@@ -47,17 +47,17 @@
                     <td class="border border-gray-300 p-4 text-sm text-black">
                         {{$book_issue->student->name}}
                     </td>
-                    <td class=" p-4 text-sm text-black flex justify-center">
+                    <td class="border border-gray-300 p-4 text-sm text-black flex justify-center">
                         <img src="{{asset($book_issue->student->image)}}" height="50" width="50" alt="">
                     </td>
                     <td class="border border-gray-300 p-4 text-sm text-black">
                         {{ date("F j, Y, g:i a", $book_issue->issue_timestamp)}}
                     </td>
-                    <td class=" p-4 text-sm text-black flex justify-center">
-                        {{$book_issue->return_date}}
+                    <td class=" border border-gray-300 p-4 text-sm text-black">
+                        {{ date("F j, Y, g:i a", $book_issue->return_timestamp)}}
                     </td>
                     <td class="border border-gray-300 p-4 text-sm text-black">
-                        <span class="bg-orange-500 px-2 py-1 text-xs text-white rounded">{{$book_issue->issue_status}}</span>
+                        <span class=" {{$book_issue->issue_status == 'Pending' ? 'bg-orange-500' : ''}} {{$book_issue->issue_status == 'Issued' ? 'bg-green-500' : ''}} {{$book_issue->issue_status == 'Cancel' ? 'bg-red-500' : ''}} {{$book_issue->issue_status == 'Returned' ? 'bg-sky-500' : ''}} px-2 py-1 text-xs text-white rounded">{{$book_issue->issue_status}}</span>
                     </td>
                     <td class="border border-gray-300 p-4 text-sm text-black">
                         {{$book_issue->issue_book_count}}

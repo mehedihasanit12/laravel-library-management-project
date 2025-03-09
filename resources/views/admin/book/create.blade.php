@@ -43,12 +43,12 @@
             </div>
 
             <div class="relative flex items-center">
-                <input type="number" placeholder="Book Price" name="regular_price"
+                <input type="number" placeholder="Book Regular Price" name="regular_price"
                        class="px-4 py-3 bg-[#f0f1f2] focus:bg-transparent w-full text-sm border outline-[#007bff] rounded transition-all" />
             </div>
 
             <div class="relative flex items-center">
-                <input type="number" placeholder="Book Price" name="selling_price"
+                <input type="number" placeholder="Book Selling Price" name="selling_price"
                        class="px-4 py-3 bg-[#f0f1f2] focus:bg-transparent w-full text-sm border outline-[#007bff] rounded transition-all" />
             </div>
 
